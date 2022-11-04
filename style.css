@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    background-color: #212529;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    height: 60px;
+    background-color: #EF534F;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 12px 5px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+main {
+    padding: 16px;
+}
+
+.pokedex {
+    min-height: 50vh;
+    background-color: #fb6c6c;
+    color: white;
+    display: flex;
+    padding: 24px;
+}
+
+.info-container {
+    background-color: white;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    margin-top: -40px;
+    min-height: 100px;
+}
+
+.input-search-container {
+    width: 200px;
+    height: 30px;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.searchbar {
+    width: 80%;
+    height: 22px;
+    background-color: whitesmoke;
+    outline: none;
+    border: none;
+}
+
+.search-close-icons {
+    max-height: 16px;
+    margin-right: 7px;
+}
+
+.d-none {
+    display: none;
+}
+
+.pokemon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pokemon-card-s {
+    height: 200px;
+    width: 300px;
+    background-color: #4BD0B0;
+    border-radius: 10px;
+    margin: 16px;
+}
+
+.pokemon-card-s:hover {
+    opacity: .7;
+}
