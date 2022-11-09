@@ -1,0 +1,29 @@
+/* BG COLORS FOR POKEMON CARDS */
+
+.bg-grass {
+    background-color: #49d0b0;
+}
+
+.bg-fire {
+    background-color: #db5349;
+}
+
+.bg-water {
+    background-color: #569fe4;
+}
+
+.bg-bug {
+    background-color: rgb(168, 184, 32);
+}
+
+.bg-normal {
+    background-color: rgb(168, 168, 120);
+}
+
+.bg-poison {
+    background-color: rgb(160, 64, 160);
+}
+
+.bg-electric {
+    background-color: #FFCF4A;
+}
