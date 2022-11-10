@@ -1,3 +1,26 @@
 Favicon
 
 <a href="https://www.flaticon.com/free-icons/pokemon" title="pokemon icons">Pokemon icons created by Nikita Golubev - Flaticon</a>
+
+
+Light mode
+<a href="https://www.flaticon.com/free-icons/light" title="light icons">Light icons created by Freepik - Flaticon</a>
+
+dark mode
+<a href="https://www.flaticon.com/free-icons/dark" title="dark icons">Dark icons created by adriansyah - Flaticon</a>
+
+search icons 
+
+<a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by th studio - Flaticon</a>
+
+LIGHT MODE LINEAR
+<a href="https://www.flaticon.com/free-icons/day-mode" title="day mode icons">Day mode icons created by bsd - Flaticon</a>
+
+DARKMODE LINEAR
+<a href="https://www.flaticon.com/free-icons/dark-mode" title="dark mode icons">Dark mode icons created by pictranoosa - Flaticon</a>
+
+SCALE
+<a href="https://www.flaticon.com/free-icons/weight" title="weight icons">Weight icons created by Freepik - Flaticon</a>
+
+HEIGHT
+<a href="https://www.flaticon.com/free-icons/height" title="height icons">Height icons created by Freepik - Flaticon</a>

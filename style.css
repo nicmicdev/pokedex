@@ -11,7 +11,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 12px 5px 12px;
+    padding: 5px 17px 5px 17px;
     position: sticky;
     top: 0;
     z-index: 3;
@@ -77,14 +77,15 @@ main {
     position: relative;
     height: 250px;
     width: 350px;
-    /* background-color: #49d0b0; */
-    background-color: chocolate;
+    /* background-color: chocolate; */
+    background-color: #49d0b0;
     border-radius: 10px;
     margin: 16px;
     color: white;
     padding: 16px;
     /* box-shadow: 4px 4px 8px 2px rgba(255, 255, 255, 0.15); */
     transition: all 0.24s ease-in-out;
+    cursor: pointer;
 }
 
 .pokemon-card-s:hover {
@@ -131,6 +132,198 @@ main {
     right: 16px;
 }
 
+.mode-icons {
+    height: 24px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.searchbar-and-modeswitch {
+    display: flex;
+    align-items: center;
+}
+
+.popup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9;
+}
+
+
+.card-container {
+    position: relative;
+    position: fixed;
+    top: 9%;
+    bottom: 3%;
+    width: 550px;
+    z-index: 10;
+    border-radius: 20px;
+    object-fit: contain;
+    background-color: white;
+    /* padding: 20px; */
+    /* right: 15%; */
+    /* left: 15%; */
+
+}
+
+.oflow-y-hid {
+    overflow-y: hidden !important;
+}
+
+.oflow-y-unset {
+    overflow-y: unset !important;
+}
+
+.card-top {
+    height: 60%;
+    color: white;
+    background-color: #49d0b0;
+    border-radius: 20px;
+    position: relative;
+}
+
+.card-heading {
+    position: absolute;
+    font-size: 40px;
+    font-weight: bold;
+    top: 64px;
+    left: 32px;
+}
+
+.card-id {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: rgba(0, 0, 0, 0.2);
+
+}
+
+.card-close {
+    position: absolute;
+    font-size: 35px;
+    top: 5px;
+    right: 16px;
+    color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.card-type {
+    position: absolute;
+    top: 150px;
+    left: 32px;
+    padding: 4px 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.card-type-2 {
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    padding: 4px 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.card-pic {
+    height: 250px;
+    position: absolute;
+    bottom: 16px;
+    right: 150px;
+    
+}
+
+.card-arrow-left {
+    position: absolute;
+    bottom: 100px;
+    left: 32px;
+    color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 50px;
+}
+
+.card-arrow-right {
+    position: absolute;
+    bottom: 100px;
+    right: 32px;
+    color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 50px;
+}
+
+.card-experience {
+    position: absolute;
+    top: 115px;
+    left: 32px;
+    cursor: pointer;
+}
+
+.card-weight {
+    position: absolute;
+    bottom: 16px;
+    left: 32px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.card-h8 {
+    position: absolute;
+    bottom: 16px;
+    right: 32px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.card-bottom {
+    height: 40%;
+    background-color: floralwhite;
+    color: black;
+    border-radius: 20px;
+    position: relative;
+    padding: 16px 32px;
+}
+
+.bottom-heading {
+    border-bottom: 1px solid lightgray;
+    
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    height: 85%;
+    width: 100%;
+}
+
+.stats-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: gray;
+}
+
+.stats-numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.stats-progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 250px;
+}
 
 
 

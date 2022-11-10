@@ -5,7 +5,8 @@
 }
 
 .bg-fire {
-    background-color: #db5349;
+    /* background-color: #db5349; */
+    background-color: rgb(240, 128, 48);
 }
 
 .bg-water {
@@ -26,4 +27,36 @@
 
 .bg-electric {
     background-color: #FFCF4A;
+}
+
+.bg-ground {
+    background-color: rgb(224, 192, 104);
+}
+
+.bg-fairy {
+    background-color: rgb(238, 153, 172);
+}
+
+.bg-fighting {
+    background-color: rgb(192, 48, 40) ;
+}
+
+.bg-psychic {
+    background-color: rgb(248, 88, 136);
+}
+
+.bg-rock {
+    background-color:rgb(184, 160, 56) ;
+}
+
+.bg-ghost {
+    background-color: rgb(112, 88, 152) ;
+}
+
+.bg-ice {
+    background-color: rgb(152, 216, 216) ;
+}
+
+.bg-dragon {
+    background-color: rgb(112, 56, 248) ;
 }
