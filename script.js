@@ -4,42 +4,9 @@ let allPokemons = [];
 let pokemonContainer = getElement('pokemon-container');
 let cardContainer = getElement('card-container');
 let pokemonNames = [];
+let currentOpenedPokemon;
 
 
-// let searchbar = getElement('searchbar');
-
-// searchbar.addEventListener('keyup', (e) => {
-//     let searchString = e.target.value;
-//     let filteredPokemons = allPokemons.filter( pokemon => {
-//         return pokemon.name.includes(searchString);
-//     });
-//     console.log(filteredPokemons);
-
-// })
-
-
-function searchPokemons() {
-    let searchString = getElement('searchbar').value;
-    searchString = searchString.toLowerCase();
-    pokemonContainer.innerHTML = "";
-    for (let i = 0; i < 152; i++) {
-        let name = allPokemons[i]['name'];
-        if (name.toLowerCase().includes(searchString)){
-            console.log(name)
-            renderFilteredCardsSmall(i);
-        }
-    }
-}
-
-function renderFilteredCardsSmall(i)  {
-    let pokemon = allPokemons[i];
-    pokemonContainer.innerHTML += generateFilteredCardSmallHTML(i,pokemon);
-    let lengthOfTypes = currentPokemon['types'].length; 
-    if (lengthOfTypes == 2){
-        getElement(`card-s-${i}`).innerHTML += generateSecondTypeSmallHTML();
-    }
-    paintFilteredSmallCards(i);
-}
 
 
 
@@ -59,26 +26,6 @@ async function loadAllPokemons() {
 }
 
 
-
-// function filterPokemons() {
-//     let inputvalue = getElement('searchbar').value;
-//     inputvalue = inputvalue.toLowerCase();
-//     console.log (inputvalue);
-
-//     pokemonContainer.innerHTML = "";
-
-//     for (let i = 0; i < 152; i++) {
-//         const pokemon = allPokemons[i]['name'];
-//         if (pokemon.includes(inputvalue)) {
-//             pokemonContainer.innerHTML += generatePokemonCardSmallHTML(i);
-//         }
-//     }
-// }
-
-
-
-
-
 function renderSmallPokemonCards(i)  {
     pokemonContainer.innerHTML += generatePokemonCardSmallHTML(i);
     let lengthOfTypes = currentPokemon['types'].length; 
@@ -88,15 +35,53 @@ function renderSmallPokemonCards(i)  {
     paintSmallCards(i);
 }
 
+function filterPokemons() {
+    let searchString = getElement('searchbar').value;
+    searchString = searchString.toLowerCase();
+    pokemonContainer.innerHTML = "";
+    for (let i = 0; i < 152; i++) {
+        let pokemonName = allPokemons[i]['name'];
+        if (pokemonName.toLowerCase().includes(searchString)){
+            renderFilteredCardsSmall(i);
+        }
+    }
+}
+
+function renderFilteredCardsSmall(i)  {
+    let pokemon = allPokemons[i];
+    pokemonContainer.innerHTML += generateFilteredCardSmallHTML(i,pokemon);
+    let lengthOfTypes = currentPokemon['types'].length; 
+    if (lengthOfTypes == 2){
+        getElement(`card-s-${i}`).innerHTML += generateSecondTypeSmallHTML();
+    }
+    paintFilteredSmallCards(i);
+}
 
 
 
 function openCard(i){
+    currentOpenedPokemon = i ;
     getElement('card-container').classList.remove('d-none');
     getElement('overlay').classList.remove('d-none');
     getElement('body').classList.add('oflow-y-hid');
     getElement('body').classList.remove('oflow-y-unset');
     renderDetailCard(i);
+}
+
+function nextCard(i){
+    if (i == 151) {
+        openCard(1);
+    } else {
+        openCard(i+1);
+    }
+}
+
+function previousCard(i) {
+    if (i == 1) {
+        openCard(151);
+    } else {
+        openCard(i-1);
+    }
 }
 
 
@@ -140,7 +125,7 @@ function closeSearch() {
     getElement('searchbar').value = '';
     getElement('search-icon').classList.remove('d-none');
     getElement('close-icon').classList.add('d-none');
-    searchPokemons();
+    filterPokemons();
 }
 
 // function openCard(i) {
@@ -309,13 +294,36 @@ function paintDetailCard(i,pokemon){
     }
 }
 
-// EVENT LISTENER
+// EVENT LISTENERS
 
 document.addEventListener('keydown', function(event){      
 	if(event.key === "Escape"){
 		closeCard();
 	}
 }); 
+
+document.addEventListener('keydown', function(event){      
+	if(event.key === "ArrowRight"){
+		nextCard(currentOpenedPokemon);
+	}
+}); 
+
+
+document.addEventListener('keydown', function(event){      
+	if(event.key === "ArrowLeft"){
+		previousCard(currentOpenedPokemon);
+	}
+}); 
+
+let searchbar = getElement('searchbar');
+
+searchbar.addEventListener('keydown', function(event){
+    if (event.key === "Enter"){
+        openCard();
+    }
+})
+
+
 
 
 
