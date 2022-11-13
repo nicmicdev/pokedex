@@ -32,6 +32,24 @@
     .searchbar-and-modeswitch {
         margin-top: 7px;
     }
+
+    .card-pic-container {
+        bottom: 27px;
+    }
+
+    .card-arrow-right {
+        color: white;
+    }
+    
+    .card-arrow-left {
+        color: white;
+    }
+
+    .stats-titles {
+        width: min-content;
+    }
+
+
 }
 
 @media (max-width:350px) {
@@ -43,11 +61,20 @@
         top: 102px;
     }
 
+}
+
+@media (max-width:320px) {
     .card-s-img {
-        height: 130px;
-        top: 122px;
+        height: 150px;
+        top: 107px;
     }
 
-    
+    .card-h8 {
+        font-size: 17px;
+    }
+
+    .card-weight {
+        font-size: 17px;
+    }
 
 }

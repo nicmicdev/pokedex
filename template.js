@@ -42,8 +42,8 @@ function generateDetailCardHTML(i,pokemon) {
         <h2 class="card-heading">${capitalize(pokemon['name'])}</h2>
         <h2 class="card-id">#${i}</h2>
         <h2 class="card-close" onclick="closeCard()" title="Close (ESC)">x</h2>
-        <h2 class="card-arrow-left" title="Previous Pokémon" onclick="previousCard(${i})"><</h2>
-        <h2 class="card-arrow-right" title="Next Pokémon" onclick="nextCard(${i})">></h2>
+        <h2 class="card-arrow-left" title="Previous Pokémon (left arrow)" onclick="previousCard(${i})"><</h2>
+        <h2 class="card-arrow-right" title="Next Pokémon (right arrow)" onclick="nextCard(${i})">></h2>
         <span class="card-type">${pokemon['types'][0]['type']['name']}</span>
         <div class="card-pic-container" >        
             <img class="card-pic" src="${pokemon['sprites']['other']['official-artwork']['front_default']}">
