@@ -20,6 +20,22 @@ function generateFilteredCardSmallHTML(i,pokemon) {
 `
 }
 
+
+function generateSecondTypeSmallHTML() {
+    return ` <span class="card-s-type-2">${currentPokemon['types'][1]['type']['name']}</span> `
+}
+
+
+function generateTypeFilteredHTML(pokemon) {
+    return ` <span class="card-s-type-2">${pokemon['types'][1]['type']['name']}</span> `
+}
+
+
+function generateSecondTypeHTML(pokemon) {
+    return ` <span class="card-type-2">${pokemon['types'][1]['type']['name']}</span> `
+}
+
+
 function generateDetailCardHTML(i,pokemon) {
     return `
     <div class="card-top" id="card-${i}">
@@ -29,7 +45,9 @@ function generateDetailCardHTML(i,pokemon) {
         <h2 class="card-arrow-left" title="Previous Pokémon" onclick="previousCard(${i})"><</h2>
         <h2 class="card-arrow-right" title="Next Pokémon" onclick="nextCard(${i})">></h2>
         <span class="card-type">${pokemon['types'][0]['type']['name']}</span>
-        <img class="card-pic" src="${pokemon['sprites']['other']['official-artwork']['front_default']}">
+        <div class="card-pic-container" >        
+            <img class="card-pic" src="${pokemon['sprites']['other']['official-artwork']['front_default']}">
+        </div>
         <span class="card-experience" title="The base experience gained for defeating this Pokémon.">Base Experience: <b>${pokemon['base_experience']}</b></span>
         <span class="card-weight" title="Hectogram">Weight: <b>${pokemon['weight']}</b></span>
         <span class="card-h8" title="Decimetres">Height: <b>${pokemon['height']}</b></span>
@@ -90,11 +108,3 @@ function generateDetailCardHTML(i,pokemon) {
 `
 }
 
-function generateSecondTypeSmallHTML() {
-    return ` <span class="card-s-type-2">${currentPokemon['types'][1]['type']['name']}</span> `
-}
-
-
-function generateSecondTypeHTML(pokemon) {
-    return ` <span class="card-type-2">${pokemon['types'][1]['type']['name']}</span> `
-}

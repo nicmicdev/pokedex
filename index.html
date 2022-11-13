@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="colors.css">
+    <link rel="stylesheet" href="mobile.css">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
 
     <title>Pokédex</title>
 
@@ -22,7 +24,7 @@
 <body onload="loadAllPokemons()" id="body">
 
     <header>
-        <h2>Pokédex</h2>
+        <a title="Go back to top" href="#" onclick="scrollToTop()"><img src="img/logo.png" alt="" style="height:44px;"></a>
         
         <div class="searchbar-and-modeswitch">
             <div class="input-search-container" title="please search in english language">
@@ -31,8 +33,8 @@
                 <img onclick="closeSearch()" id="close-icon" src="img/close.png" class="search-close-icons d-none">
             </div>
 
-            <img src="img/lightmode.png" onclick="changeBgtoBright()" id="bright-btn" class="mode-icons"></img>
-            <img src="img/darkmode.png" onclick="changeBgtoDark()" id="dark-btn" class="d-none mode-icons"></img>
+            <img src="img/lightmode-color.png" onclick="changeBgtoBright()" id="bright-btn" class="mode-icons"></img>
+            <img src="img/darkmode-color.png" onclick="changeBgtoDark()" id="dark-btn" class="d-none mode-icons"></img>
         </div>
     </header>
 
@@ -47,8 +49,9 @@
                     <h2 class="card-arrow-left" title="Previous Pokémon"><</h2>
                             <h2 class="card-arrow-right" title="Next Pokémon">></h2>
                             <span class="card-type">grass</span>
-                            <img class="card-pic"
-                                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png">
+                            <div class="card-pic-container">
+                                <img class="card-pic" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png">
+                            </div>
                             <span class="card-experience"
                                 title="The base experience gained for defeating this Pokémon.">Base Experience:
                                 <b>64</b></span>
@@ -124,65 +127,15 @@
 
         <div id="pokemon-container" class="pokemon-container">
 
-            <div class="pokemon-card-s" onclick="openCard()">
-
-                <h3 class="card-s-heading">Bulbasaur</h3>
-                <h5 class="card-s-id">#1</h5>
-                <span class="card-s-type">grass</span>
-                <span class="card-s-type-2">poison</span>
-                <img class="card-s-img"
-                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png">
-
-            </div>
-
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
-            <div class="pokemon-card-s"></div>
 
         </div>
+
     </main>
 
-    <!-- <footer>
-        
+    <footer>
+        <a title="Open project on GitHub" href="https://github.com/nicmicdev/pokedex" target="_blank"><img src="img/created-by.png" style="height:32px ;"></a>
+        <a href="imprint.html" target="_blank">Imprint</a>
     </footer>
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <div id="pokedex" class="pokedex">
-        <h1 id="pokemon-name"></h1>
-    </div>
-
-    <div class="info-container">
-        <img id="pokemon-img">
-    </div> -->
-
-
 
 
 

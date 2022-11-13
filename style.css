@@ -3,10 +3,14 @@ body {
     background-color: #212529 !important;
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     height: 60px;
+    margin: 16px;
+    border-radius: 20px;
     background-color: #EF534F;
     color: whitesmoke;
     display: flex;
@@ -236,12 +240,27 @@ main {
     border-radius: 10px;
 }
 
+.pic-container {
+    display: flex;
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.card-pic-container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+
 .card-pic {
     height: 250px;
-    position: absolute;
-    bottom: 16px;
-    right: 150px;
-    
 }
 
 .card-arrow-left {
@@ -251,6 +270,7 @@ main {
     color: rgba(0, 0, 0, 0.2);
     cursor: pointer;
     font-size: 50px;
+    z-index: 3;
 }
 
 .card-arrow-right {
@@ -260,6 +280,7 @@ main {
     color: rgba(0, 0, 0, 0.2);
     cursor: pointer;
     font-size: 50px;
+    z-index: 3;
 }
 
 .card-experience {
@@ -328,9 +349,23 @@ main {
 }
 
 footer {
-    margin: 0;
-    height: 150px;
-    background-color: gray;
+    /* height: 150px; */
+    background-color: #3a3a3a;
+    height: 150px; 
+    margin-top: auto;
+    margin: auto 16px 16px 16px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+a {
+    text-decoration: none !important;
+    color: white !important;
 }
 
 
