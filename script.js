@@ -1,11 +1,11 @@
 //DEFINING GLOBAL VARIABLES
 let currentPokemon;
 let allPokemons = [];
-let pokemonContainer = getElement('pokemon-container');
-let cardContainer = getElement('card-container');
 let pokemonNames = [];
 let currentOpenedPokemon;
 let cardOpened = false;
+let pokemonContainer = getElement('pokemon-container');
+let cardContainer = getElement('card-container');
 
 
 //FETCHING POKEMON DATA FROM API
@@ -18,7 +18,7 @@ async function loadAllPokemons() {
         allPokemons.push(currentPokemon);
         renderSmallPokemonCards(i);
     }
-    console.log ('Loaded all pokemons successfully');
+    console.log ('Loaded all 151 pokemons successfully');
 }
 
 
@@ -33,6 +33,16 @@ function renderSmallPokemonCards(i)  {
 }
 
 
+function renderDetailCard(i) {
+    let pokemon = allPokemons[i-1];
+    cardContainer.innerHTML = generateDetailCardHTML(i, pokemon);
+    let lengthOfTypes = pokemon['types'].length; 
+    if (lengthOfTypes == 2){
+        getElement(`card-${i}`).innerHTML += generateSecondTypeHTML(pokemon);
+    }
+    paintDetailCard(i, pokemon);
+}
+
 function openCard(i){
     currentOpenedPokemon = i ;
     cardOpened = true;
@@ -44,14 +54,29 @@ function openCard(i){
 }
 
 
-function renderDetailCard(i) {
-    let pokemon = allPokemons[i-1];
-    cardContainer.innerHTML = generateDetailCardHTML(i, pokemon);
-    let lengthOfTypes = pokemon['types'].length; 
-    if (lengthOfTypes == 2){
-        getElement(`card-${i}`).innerHTML += generateSecondTypeHTML(pokemon);
+function nextCard(i){
+    if (i == 151) {
+        openCard(1);
+    } else {
+        openCard(i+1);
     }
-    paintDetailCard(i, pokemon);
+}
+
+function previousCard(i) {
+    if (i == 1) {
+        openCard(151);
+    } else {
+        openCard(i-1);
+    }
+}
+
+
+function closeCard(){
+    getElement('card-container').classList.add('d-none');
+    getElement('overlay').classList.add('d-none');
+    getElement('body').classList.add ('oflow-y-unset');
+    getElement('body').classList.remove ('oflow-y-hidden');
+    cardOpened = false;
 }
 
 
@@ -80,33 +105,7 @@ function renderFilteredCardsSmall(i)  {
 }
 
 
-//
-function nextCard(i){
-    if (i == 151) {
-        openCard(1);
-    } else {
-        openCard(i+1);
-    }
-}
-
-function previousCard(i) {
-    if (i == 1) {
-        openCard(151);
-    } else {
-        openCard(i-1);
-    }
-}
-
-
-function closeCard(){
-    getElement('card-container').classList.add('d-none');
-    getElement('overlay').classList.add('d-none');
-    getElement('body').classList.add ('oflow-y-unset');
-    getElement('body').classList.remove ('oflow-y-hidden');
-    cardOpened = false;
-}
-
-
+//TOGGLE SEARCHBAR
 function openSearch() {
     getElement('search-icon').classList.add('d-none');
     getElement('close-icon').classList.remove('d-none');
@@ -121,17 +120,7 @@ function closeSearch() {
 }
 
 
-//HELP FUNCTIONS 
-function capitalize(s) {
-    return s[0].toUpperCase() + s.slice(1);
-}
-
-
-function getElement(id) {
-    return document.getElementById(id);
-}
-
-
+//MODE SWITCH (DARK AND LIGHT)
 function changeBgtoBright() {
     getElement('body').style = "background-color: #fff8eb !important;"
     getElement('bright-btn').classList.add('d-none');
@@ -145,166 +134,58 @@ function changeBgtoDark() {
     getElement('dark-btn').classList.add('d-none');
 }
 
+
+//HELP FUNCTIONS 
+function capitalize(s) {
+    return s[0].toUpperCase() + s.slice(1);
+}
+
+
+function getElement(id) {
+    return document.getElementById(id);
+}
+
+
 function scrollToTop() {
     window.scrollTo({ top: 16, behavior: 'smooth' });
 }
 
+
 function paintSmallCards(i){
     let type = currentPokemon['types'][0]['type']['name'];
-    if (type == 'grass') {
-        getElement(`card-s-${i}`).classList.add('bg-grass');
-    }
-    if (type == 'fire') {
-        getElement(`card-s-${i}`).classList.add('bg-fire');
-    }
-    if (type == 'water') {
-        getElement(`card-s-${i}`).classList.add('bg-water');
-    }
-    if (type == 'bug') {
-        getElement(`card-s-${i}`).classList.add('bg-bug');
-    }
-    if (type == 'normal') {
-        getElement(`card-s-${i}`).classList.add('bg-normal');
-    }
-    if (type == 'poison') {
-        getElement(`card-s-${i}`).classList.add('bg-poison');
-    }
-    if (type == 'electric') {
-        getElement(`card-s-${i}`).classList.add('bg-electric');
-    }
-    if (type == 'ground') {
-        getElement(`card-s-${i}`).classList.add('bg-ground');
-    }
-    if (type == 'fairy') {
-        getElement(`card-s-${i}`).classList.add('bg-fairy');
-    }
-    if (type == 'fighting') {
-        getElement(`card-s-${i}`).classList.add('bg-fighting');
-    }
-    if (type == 'psychic') {
-        getElement(`card-s-${i}`).classList.add('bg-psychic');
-    }
-    if (type == 'rock') {
-        getElement(`card-s-${i}`).classList.add('bg-rock');
-    }
-    if (type == 'ghost') {
-        getElement(`card-s-${i}`).classList.add('bg-ghost');
-    }
-    if (type == 'ice') {
-        getElement(`card-s-${i}`).classList.add('bg-ice');
-    }
-    if (type == 'dragon') {
-        getElement(`card-s-${i}`).classList.add('bg-dragon');
-    }
+    checkTypesSmall(type,i)    
 }
+
 
 function paintFilteredSmallCards(i){
     let type = allPokemons[i]['types'][0]['type']['name'];
-    if (type == 'grass') {
-        getElement(`card-s-${i}`).classList.add('bg-grass');
-    }
-    if (type == 'fire') {
-        getElement(`card-s-${i}`).classList.add('bg-fire');
-    }
-    if (type == 'water') {
-        getElement(`card-s-${i}`).classList.add('bg-water');
-    }
-    if (type == 'bug') {
-        getElement(`card-s-${i}`).classList.add('bg-bug');
-    }
-    if (type == 'normal') {
-        getElement(`card-s-${i}`).classList.add('bg-normal');
-    }
-    if (type == 'poison') {
-        getElement(`card-s-${i}`).classList.add('bg-poison');
-    }
-    if (type == 'electric') {
-        getElement(`card-s-${i}`).classList.add('bg-electric');
-    }
-    if (type == 'ground') {
-        getElement(`card-s-${i}`).classList.add('bg-ground');
-    }
-    if (type == 'fairy') {
-        getElement(`card-s-${i}`).classList.add('bg-fairy');
-    }
-    if (type == 'fighting') {
-        getElement(`card-s-${i}`).classList.add('bg-fighting');
-    }
-    if (type == 'psychic') {
-        getElement(`card-s-${i}`).classList.add('bg-psychic');
-    }
-    if (type == 'rock') {
-        getElement(`card-s-${i}`).classList.add('bg-rock');
-    }
-    if (type == 'ghost') {
-        getElement(`card-s-${i}`).classList.add('bg-ghost');
-    }
-    if (type == 'ice') {
-        getElement(`card-s-${i}`).classList.add('bg-ice');
-    }
-    if (type == 'dragon') {
-        getElement(`card-s-${i}`).classList.add('bg-dragon');
-    }
+    checkTypesSmall(type,i);
 }
 
 
-function paintDetailCard(i,pokemon){
-    let type = pokemon['types'][0]['type']['name'];
-    if (type == 'grass') {
-        getElement(`card-${i}`).classList.add('bg-grass');
-    }
-    if (type == 'fire') {
-        getElement(`card-${i}`).classList.add('bg-fire');
-    }
-    if (type == 'water') {
-        getElement(`card-${i}`).classList.add('bg-water');
-    }
-    if (type == 'bug') {
-        getElement(`card-${i}`).classList.add('bg-bug');
-    }
-    if (type == 'normal') {
-        getElement(`card-${i}`).classList.add('bg-normal');
-    }
-    if (type == 'poison') {
-        getElement(`card-${i}`).classList.add('bg-poison');
-    }
-    if (type == 'electric') {
-        getElement(`card-${i}`).classList.add('bg-electric');
-    }
-    if (type == 'ground') {
-        getElement(`card-${i}`).classList.add('bg-ground');
-    }
-    if (type == 'fairy') {
-        getElement(`card-${i}`).classList.add('bg-fairy');
-    }
-    if (type == 'fighting') {
-        getElement(`card-${i}`).classList.add('bg-fighting');
-    }
-    if (type == 'psychic') {
-        getElement(`card-${i}`).classList.add('bg-psychic');
-    }
-    if (type == 'rock') {
-        getElement(`card-${i}`).classList.add('bg-rock');
-    }
-    if (type == 'ghost') {
-        getElement(`card-${i}`).classList.add('bg-ghost');
-    }
-    if (type == 'ice') {
-        getElement(`card-${i}`).classList.add('bg-ice');
-    }
-    if (type == 'dragon') {
-        getElement(`card-${i}`).classList.add('bg-dragon');
-    }
+function checkTypesSmall(type,i) {
+    checkSmallType1To4(type,i);
+    checkSmallType5To8(type,i);
+    checkSmallType9To12(type,i);
+    checkSmallType13To15(type,i);
 }
+
+
+function paintDetailCard(i){
+    let type = allPokemons[i-1]['types'][0]['type']['name'];
+    checkDetailType1to4(type,i);
+    checkDetailType5to8(type,i);
+    checkDetailType9to12(type,i);
+    checkDetailType12to15(type,i);
+}
+
 
 // EVENT LISTENERS
-
 document.addEventListener('keydown', function(event){      
 	if(event.key === "Escape"){
 		closeCard();
 	}
 }); 
-
 document.addEventListener('keydown', function(event){      
     if(event.key === "ArrowRight" && cardOpened == true){
         nextCard(currentOpenedPokemon);
@@ -315,12 +196,3 @@ document.addEventListener('keydown', function(event){
         previousCard(currentOpenedPokemon);
     }
 });
-
-
-let searchbar = getElement('searchbar');
-
-searchbar.addEventListener('keydown', function(event){
-    if (event.key === "Enter"){
-        openCard();
-    }
-})

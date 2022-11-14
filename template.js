@@ -9,6 +9,7 @@ function generatePokemonCardSmallHTML(i) {
 `
 }
 
+
 function generateFilteredCardSmallHTML(i,pokemon) {
     return `
         <div class="pokemon-card-s" id="card-s-${i}" onclick="openCard(${i+1})">
@@ -32,19 +33,19 @@ function generateTypeFilteredHTML(pokemon) {
 
 
 function generateSecondTypeHTML(pokemon) {
-    return ` <span class="card-type-2">${pokemon['types'][1]['type']['name']}</span> `
+    return ` <span title="Type of the Pokémon" class="card-type-2">${pokemon['types'][1]['type']['name']}</span> `
 }
 
 
 function generateDetailCardHTML(i,pokemon) {
     return `
     <div class="card-top" id="card-${i}">
-        <h2 class="card-heading">${capitalize(pokemon['name'])}</h2>
-        <h2 class="card-id">#${i}</h2>
+        <h2 title="Name of the Pokémon" class="card-heading">${capitalize(pokemon['name'])}</h2>
+        <h2 title="ID of the Pokémon" class="card-id">#${i}</h2>
         <h2 class="card-close" onclick="closeCard()" title="Close (ESC)">x</h2>
         <h2 class="card-arrow-left" title="Previous Pokémon (left arrow)" onclick="previousCard(${i})"><</h2>
         <h2 class="card-arrow-right" title="Next Pokémon (right arrow)" onclick="nextCard(${i})">></h2>
-        <span class="card-type">${pokemon['types'][0]['type']['name']}</span>
+        <span title="Type of the Pokémon" class="card-type">${pokemon['types'][0]['type']['name']}</span>
         <div class="card-pic-container" >        
             <img class="card-pic" src="${pokemon['sprites']['other']['official-artwork']['front_default']}">
         </div>
@@ -53,7 +54,7 @@ function generateDetailCardHTML(i,pokemon) {
         <span class="card-h8" title="Decimetres">Height: <b>${pokemon['height']}</b></span>
     </div>
 
-    <div class="card-bottom">
+    <div class="card-bottom" title="Base Stats of the Pokémon">
         <h5 class="bottom-heading">Base Stats</h5>
 
         <div class="stats-container">

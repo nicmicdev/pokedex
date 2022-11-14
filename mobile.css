@@ -25,6 +25,13 @@
         padding: 12px;
     }
 
+    .mode-icons {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        height: 27px;
+    }
+
     .card-pic {
         right: 10%;
     }

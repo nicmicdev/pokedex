@@ -203,6 +203,7 @@ main {
     font-weight: bold;
     top: 64px;
     left: 32px;
+    cursor: pointer;
 }
 
 .card-id {
@@ -210,6 +211,7 @@ main {
     top: 16px;
     left: 16px;
     color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 
 }
 
@@ -229,6 +231,7 @@ main {
     padding: 4px 12px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .card-type-2 {
@@ -238,6 +241,7 @@ main {
     padding: 4px 12px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .pic-container {
@@ -313,6 +317,7 @@ main {
     border-radius: 20px;
     position: relative;
     padding: 16px 32px;
+    cursor: pointer;
 }
 
 .bottom-heading {
