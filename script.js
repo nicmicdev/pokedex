@@ -4,6 +4,7 @@ let allPokemons = [];
 let pokemonNames = [];
 let currentOpenedPokemon;
 let cardOpened = false;
+let loading;
 let pokemonContainer = getElement('pokemon-container');
 let cardContainer = getElement('card-container');
 
@@ -12,13 +13,14 @@ let cardContainer = getElement('card-container');
 async function loadAllPokemons() {
     pokemonContainer.innerHTML = '';
     for (let i = 1; i < 152; i++) {
+        getElement('inputfield').classList.add('no-click');
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json();
         allPokemons.push(currentPokemon);
         renderSmallPokemonCards(i);
     }
-    console.log ('Loaded all 151 pokemons successfully');
+    getElement('inputfield').classList.remove('no-click');
 }
 
 
@@ -85,7 +87,7 @@ function filterPokemons() {
     let searchString = getElement('searchbar').value;
     searchString = searchString.toLowerCase();
     pokemonContainer.innerHTML = "";
-    for (let i = 0; i < 152; i++) {
+    for (let i = 0; i < 151; i++) {
         let pokemonName = allPokemons[i]['name'];
         if (pokemonName.toLowerCase().includes(searchString)){
             renderFilteredCardsSmall(i);

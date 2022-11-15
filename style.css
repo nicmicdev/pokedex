@@ -373,6 +373,10 @@ a {
     color: white !important;
 }
 
+.no-click {
+    pointer-events: none;
+}
+
 
 
 
