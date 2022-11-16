@@ -4,7 +4,6 @@ let allPokemons = [];
 let pokemonNames = [];
 let currentOpenedPokemon;
 let cardOpened = false;
-let loading;
 let pokemonContainer = getElement('pokemon-container');
 let cardContainer = getElement('card-container');
 
@@ -13,14 +12,16 @@ let cardContainer = getElement('card-container');
 async function loadAllPokemons() {
     pokemonContainer.innerHTML = '';
     for (let i = 1; i < 152; i++) {
-        getElement('inputfield').classList.add('no-click');
+        pokemonContainer.classList.add('d-none');
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json();
         allPokemons.push(currentPokemon);
         renderSmallPokemonCards(i);
     }
-    getElement('inputfield').classList.remove('no-click');
+    pokemonContainer.classList.remove('d-none');
+    getElement('inputfield').classList.remove('d-none');
+    getElement('loader-container').classList.add('d-none');
 }
 
 
@@ -127,6 +128,7 @@ function changeBgtoBright() {
     getElement('body').style = "background-color: #fff8eb !important;"
     getElement('bright-btn').classList.add('d-none');
     getElement('dark-btn').classList.remove('d-none');
+    getElement('loader-message').style = 'color: black !important;'
 }
 
 
@@ -134,6 +136,8 @@ function changeBgtoDark() {
     getElement('body').style = "background-color: #212529 !important;"
     getElement('bright-btn').classList.remove('d-none');
     getElement('dark-btn').classList.add('d-none');
+    getElement('loader-message').style = 'color: white !important;'
+
 }
 
 

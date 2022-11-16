@@ -9,7 +9,6 @@ function generatePokemonCardSmallHTML(i) {
 `
 }
 
-
 function generateFilteredCardSmallHTML(i,pokemon) {
     return `
         <div class="pokemon-card-s" id="card-s-${i}" onclick="openCard(${i+1})">

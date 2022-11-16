@@ -26,7 +26,7 @@
                 style="height:44px;"></a>
 
         <div class="searchbar-and-modeswitch">
-            <div id="inputfield" class="input-search-container" title="please search in english language">
+            <div id="inputfield" class="input-search-container d-none" title="please search in english language">
                 <img id="search-icon" src="img/search2.png" class="search-close-icons">
                 <input id="searchbar" onclick="openSearch()" type="text" class="searchbar"
                     placeholder="search for a pokemon" id="searchbar" onkeyup="filterPokemons()">
@@ -41,6 +41,12 @@
     </header>
 
     <main>
+
+        <div class="loader-container" id="loader-container">
+            <span id="loader-message" class="loader-message">Please wait until all Pokémons are loaded...</span>
+
+            <div class="loader"></div>
+        </div>
 
         <div class="popup-container">
             
